@@ -1,15 +1,12 @@
 import axios from "axios";
-import dotenv from "dotenv";
-import path from "path";
-
-dotenv.config({ path: path.resolve(process.cwd(), ".env") });
+import { config } from './config';
 
 const BRAPI_URL = "https://brapi.dev/api";
 
 export const brapiClient = axios.create({
     baseURL: BRAPI_URL,
     params: {
-        token: process.env.BRAPI_TOKEN,
+        token: config.BRAPI_TOKEN,
     },
 });
 
